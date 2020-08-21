@@ -11,7 +11,7 @@
 
 //==============================================================================
 class audioPlayerApplication  : public juce::JUCEApplication
-{
+{ //doing stuff to chech source control
 public:
     //==============================================================================
     audioPlayerApplication() {}
