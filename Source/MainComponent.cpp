@@ -1,13 +1,30 @@
 #include "MainComponent.h"
-
+//example changes again
 //==============================================================================
-MainComponent::MainComponent()
+MainComponent::MainComponent() : state (stopped)
 {
+    addAndMakeVisible(&openButton);
+    openButton.setButtonText("Open...");
+    openButton.onClick = [this] {openButtonClicked();};
+    
+    addAndMakeVisible(&playButton);
+    playButton.setButtonText("Play");
+    playButton.onClick = [this] {playButtonClicked();};
+    
+    addAndMakeVisible(&stopButton);
+    stopButton.setButtonText("Stop");
+    stopButton.onClick = [this] {stopButtonClicked();};
+    
+    formatManager.registerBasicFormats();
+    transportSource.addChangeListener(this);
+    
+    
     setSize (600, 400);
 }
 
 MainComponent::~MainComponent()
 {
+    
 }
 
 //==============================================================================
